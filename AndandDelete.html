@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Delete</title>
+</head>
+<body>
+    <p>
+        <h1>List - Add & Delete</h1><br>
+        <ul id="items">
+           
+        </ul>
+        <input type="text" id="newText" />
+        <input type="button" value="Add" onclick="addItem()">
+    </p>
+
+
+    <script>
+        function addItem(){
+
+            let input = document.getElementById("newText");
+            let text = input.value;
+            let newL = document.createElement("li");
+            newL.textContent = text+" ";
+            
+            let deleteLink = document.createElement("a");
+            deleteLink.textContent="[Delete]";
+            deleteLink.href="#";
+            deleteLink.addEventListener("click",deleteItem);
+            newL.appendChild(deleteLink);
+
+            document.getElementById("items").appendChild(newL);
+            input.value = "";
+            
+            function deleteItem(){
+                document.getElementById("items").removeChild(newL);
+            }
+
+            }
+        
+        
+    </script>
+</body>
+</html>
